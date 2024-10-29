@@ -1,0 +1,15 @@
+<div class="panel">
+	<ul id="check-list-box" class="list-group checked-list-box">
+      <li class="list-group-item">
+      	<input type="checkbox" ng-model="settings.active" 
+      		ng-change="statusChanged();track('enable-changed')" style="margin-bottom:10px">  Enable {{autience_label}} 
+      </li>
+      <li class="list-group-item" 
+        ng-if="(pluginConfig.type == 'widget') && (autience_listed)">
+      	<input type="checkbox" ng-model="settings.powered" style="margin-bottom:10px"
+      		ng-change="track('powered-changed')">  
+      		Show a 'Powered By Autience' message <small ng-click="whatIsPowered()">(what is this?)</small>
+      </li>
+    </ul> 
+    Click the "Save Changes" button below to apply your settings               
+</div>

@@ -1,0 +1,33 @@
+.autience-highlight{
+	border: 1px dashed red;
+	cursor: default;
+}
+
+.autience-admin-container{
+	border: 2px dashed gray;
+	padding:20px;
+}
+
+.autience-admin-container .autience-content-bound{
+	margin: 0 auto;
+	width:700px;
+}
+
+.submit .button{
+	margin-left:15px;
+}
+
+.autience-app-invalid + .autience-options{
+	display:none;/*used to hide the save button until all values are entered properly*/
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}

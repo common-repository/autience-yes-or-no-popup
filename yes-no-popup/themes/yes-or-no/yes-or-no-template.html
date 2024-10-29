@@ -1,0 +1,64 @@
+<div class="autience-content-bound" id="autience-yes-no-popup-content">
+    <div class="autience-yn-wrapper" editable background-color="1">
+        <div id="autience-close-button" class="autience-close-button">
+            <img src="{{common_path}}/images/close.png">
+        </div>
+        <div id="autience-yes-no-popup-block" class="yeloni-yn-content-topdata">
+            <div class="yline1"><span editable editable html="1" font-size="1" font-color="1" default-size="16">Please Confirm Your Age</span></div>
+            <br/>
+            <div class="yline2" editable editable html="1" font-size="1" font-color="1" default-size="36">Are you</div>
+            <!--<div class="yline3" editable>50000 subscribers</div>-->
+            <div class="yline4" editable editable html="1" font-size="1" font-color="1" default-size="66">18 or Above?</div>
+            <hr/>
+            <div class="yeloni-light-text" editable editable html="1" font-size="1" font-color="1" default-size="13">The content of this site is not suitable for people under the age of 18. Please proceed with caution.
+            </div>
+            <div class="yeloni-yn-content-buttons">
+                <table width="100%" border="0">
+                    <tr class="desktop">
+                        <td valign="top" width="50%">
+                            <a ng-attr-href="{{ ifelse((settings.specific.yesaction == 'redirect'), settings.specific.yesurl)}}" ng-attr-target="{{(settings.specific.tab == 'newtab')?'_blank':''}}" onclick="autience_action_performed()">
+                                <div class="yeloni-yn-yesbutton" ng-class="{'autience-close-button':(settings.specific.yesaction == 'close')}" editable background-color="1">
+                                    <span class="yeloni-superlarge" editable editable html="1" font-size="1" font-color="1" default-size="50">Yes</span>
+                                    <br/>
+                                    <span editable editable html="1" font-size="1" font-color="1" default-size="16">Let me In</span>
+                                </div>
+                            </a>
+                        </td>
+                        <td valign="top" width="50%" ng-show="settings.specific.showno">
+                            <a ng-attr-href="{{ ifelse((settings.specific.noaction == 'redirect'), settings.specific.nourl)}}" ng-attr-target="{{(settings.specific.tab == 'newtab')?'_blank':''}}">
+                                <div class="yeloni-yn-nobutton" ng-class="{'autience-close-button':(settings.specific.noaction == 'close')}" editable background-color="1">
+                                    <span class="yeloni-superlarge" editable editable html="1" font-size="1" font-color="1" default-size="50">No</span>
+                                    <br/>
+                                    <span editable editable html="1" font-size="1" font-color="1" default-size="16">I don't belong here</span>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="mobile">
+                        <td valign="top" width="50%">
+                            <a ng-attr-href="{{ ifelse((settings.specific.yesaction == 'redirect'), settings.specific.yesurl)}}" ng-attr-target="{{(settings.specific.tab == 'newtab')?'_blank':''}}" onclick="autience_action_performed()">
+                                <div class="yeloni-yn-yesbutton" ng-class="{'autience-close-button':(settings.specific.yesaction == 'close')}" editable background-color="1">
+                                    <span class="yeloni-superlarge" editable editable html="1" font-size="1" font-color="1" default-size="50">Yes</span>
+                                    <br/>
+                                    <span editable editable html="1" font-size="1" font-color="1" default-size="16">Let me In</span>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="mobile">
+                        <td valign="top" width="50%" ng-show="settings.specific.showno">
+                            <a ng-attr-href="{{ ifelse((settings.specific.noaction == 'redirect'), settings.specific.nourl)}}" ng-attr-target="{{(settings.specific.tab == 'newtab')?'_blank':''}}">
+                                <div class="yeloni-yn-nobutton" ng-class="{'autience-close-button':(settings.specific.noaction == 'close')}" editable background-color="1">
+                                    <span class="yeloni-superlarge" editable editable html="1" font-size="1" font-color="1" default-size="50">No</span>
+                                    <br/>
+                                    <span editable editable html="1" font-size="1" font-color="1" default-size="16">I don't belong here</span>
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>

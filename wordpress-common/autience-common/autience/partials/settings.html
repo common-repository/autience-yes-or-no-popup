@@ -1,0 +1,28 @@
+<accordion close-others="closeOthers" >
+
+	<accordion-group heading="Step {{displayIndex}}. Design your Widget" 
+		is-open="currentSection.display" ng-if="(pluginConfig.type == 'widget')">
+		
+		<div ng-if="settings.theme && !checkingTheme">
+			<ng-include src="core.partial('widget')"></ng-include>			
+		</div>
+		<div ng-if="!settings.theme || checkingTheme">
+			<ng-include src="core.partial('selection')"></ng-include>			
+		</div>
+	</accordion-group>
+
+	<accordion-group is-open="currentSection.settings"
+		heading="Step {{settingsIndex}}. Setup {{autience_label}}"
+		is-disabled="invalidTemplate()">
+		
+		<div ng-include="core.partial('setup')"></div>
+	</accordion-group>
+	
+	<accordion-group is-open="currentSection.enable" 			
+		heading="Step {{enableIndex}}. Enable {{autience_label}} {{current_state?('(currently enabled)'):'(currently disabled)'}}"
+		is-disabled="invalidTemplate()">
+		
+		<div ng-include="core.partial('enable')"></div>
+	</accordion-group>
+	
+</accordion>

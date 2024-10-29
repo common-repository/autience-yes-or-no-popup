@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-md-6 col-xs-12">
+		<div class="well">
+			<formly-form ng-if="general" model="settings.general" fields="general"
+		    	form="forms.general">
+			</formly-form>
+			<hr style="height:1px;border:none;color:#333;background-color:#333;">
+			<formly-form ng-if="widgetFields" model="settings.specific" fields="widgetFields"
+				form="forms.specific">
+			</formly-form>
+			
+		
+			<div class="alert alert-danger" role="alert" 
+				ng-show="forms.specific.$invalid || forms.general.$invalid">
+			  
+				<span ng-show="forms.specific.$error.required||forms.general.$error.required">
+					Please enter all the required values ( marked as *)
+				</span>
+				<span ng-show="forms.specific.$error.url || forms.general.$error.url">
+					Please enter a valid url (starting with http://)
+				</span>
+			  	<span ng-show="forms.specific.$error.max || forms.general.$error.max">
+					Please enter a lower value
+				</span>
+				<span ng-show="forms.specific.$error.min || forms.general.$error.min">
+					Please enter a higher value
+				</span>
+			</div>
+		</div>
+		<button class="btn btn-primary" 
+			ng-disabled="forms.specific.$invalid || forms.general.$invalid"
+			ng-click="currentSection.enable = true;track('settings-next')">
+			Next
+		</button>
+	 
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<h4>Use these extensions to customize the popup according to your business requirements.</h4>
+<br>
+<style>
+ul .autience-description {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+</style>
+
+<accordion close-others="closeOthers">
+    <accordion-group heading="{{extensionTitle($index,feature)}}" is-open="extensionIsOpen" ng-repeat="(name,feature) in core.autience_premium">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Features</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li class="autience-description" ng-repeat="desc in feature.description">{{desc}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" ng-if="!core.hasLicense(feature.id)">
+                <paypal button-id="{{feature.paypalButton}}" price="feature.price" product-id="feature.productId" feature-id="feature.id"></paypal>
+            </div>
+            <div class="col-md-6" ng-if="core.hasLicense(feature.id)">
+                <span class="glyphicon glyphicon-ok"></span> This Extension is Active
+            </div>
+        </div>
+    </accordion-group>
+</accordion>

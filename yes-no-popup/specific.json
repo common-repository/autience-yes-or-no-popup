@@ -1,0 +1,90 @@
+{
+    "inject": ["wp_footer"],
+    "widget": {
+        "layouts": ["centered"]
+    },
+    "type": "widget",
+    "fields": [{
+        "key": "showno",
+        "type": "input",
+        "defaultValue": true,
+        "templateOptions": {
+            "type": "checkbox",
+            "label": "Show a No button"
+        }
+    }, {
+        "key": "yesaction",
+        "type": "radio",
+        "defaultValue": "redirect",
+        "templateOptions": {
+            "label": "What should happen when the user clicks Yes?",
+            "options": [{
+                "name": "Close the popup",
+                "value": "close"
+            }, {
+                "name": "Redirect to another page",
+                "value": "redirect"
+            }],
+            "required": true
+        }
+    }, {
+        "key": "yesurl",
+        "hideExpression": "(model.yesaction != 'redirect')",
+        "type": "input",
+        "templateOptions": {
+            "type": "url",
+            "label": "Where should the visitor be redirected on clicking Yes?",
+            "placeholder": "http://xyz.com/abc",
+            "required": true
+        }
+    }, {
+        "key": "noaction",
+        "type": "radio",
+        "defaultValue": "close",
+        "templateOptions": {
+            "label": "What should happen when the user clicks No?",
+            "options": [{
+                "name": "Close the popup",
+                "value": "close"
+            }, {
+                "name": "Redirect to another page",
+                "value": "redirect"
+            }],
+            "required": true
+        }
+    }, {
+        "key": "nourl",
+        "hideExpression": "(model.noaction != 'redirect')",
+        "type": "input",
+        "templateOptions": {
+            "type": "url",
+            "label": "Where should the visitor be redirected on clicking No?",
+            "placeholder": "http://xyz.com/abc",
+            "required": true
+        }
+    }, {
+        "key": "tab",
+        "type": "radio",
+        "hideExpression": "(model.yesaction != 'redirect' && model.noaction != 'redirect')",
+        "templateOptions": {
+            "label": "How should the visitor be redirected?",
+            "options": [{
+                "name": "On the same tab",
+                "value": "same"
+            }, {
+                "name": "One a new tab",
+                "value": "newtab"
+            }],
+            "required": true
+        }
+    }],
+    "visitors": false,
+    "powered": "http://autience.com",
+    "themes": [{
+        "title": "Yes or No Popup",
+        "tag": "yes-or-no",
+        "layout": "centered"
+    }],
+    "free_extensions": []
+
+}

@@ -1,0 +1,56 @@
+.autience-blog-page-container{
+	display: none;
+}
+
+/*Define container classes specific to each layout*/
+/*Attributes like Background transparent etc, which are a property of the container, 
+  but specific to each layout */
+.autience-container-bottom-right-slider{
+	width: 300px;
+	right:0px;
+	bottom:0px;
+	position: fixed;
+	z-index: 9999 !important;
+}
+
+
+.autience-layout-bottom-right-slider{
+	color:black;
+	height: 200px;
+	background-color: white;
+	-webkit-box-shadow: -4px -4px 11px 0px rgba(0,0,0,0.55);
+	-moz-box-shadow: -4px -4px 11px 0px rgba(0,0,0,0.55);
+	box-shadow: -4px -4px 11px 0px rgba(0,0,0,0.55);
+}
+
+.autience-layout-bottom-right-slider .autience-content-bound{
+	border:1px solid red;
+	width:100%;
+}
+
+/*Positioning of the close button based on layout*/
+.autience-layout-bottom-right-slider .autience-close-layout{
+	float: right;
+	display: block;
+	margin-right:10px;
+	cursor: pointer;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
+
+@media only screen and (max-width : 360px){
+	/* phones potrait */
+
+}

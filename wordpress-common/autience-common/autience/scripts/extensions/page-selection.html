@@ -1,0 +1,45 @@
+<div class="row" ng-controller="pageSelectionController">
+	
+	<div class="col-md-6 col-xs-12">
+		<div class="well">
+			<formly-form ng-if="targetFields" model="smart.pageSelection" fields="targetFields"
+		    	form="forms.pageSelection">
+			</formly-form>
+		</div>					
+	</div>
+
+	<div class="col-md-6 col-xs-12" 
+		ng-show="(smart.pageSelection.mode =='specific') && smart.pageSelection.specific">
+		<div class="well">
+			<div>
+				<b>Enter title of page/post that you want to {{smart.pageSelection.specific}}</b>
+				<br><br>
+			</div>
+			
+			<div ng-show="smart.pageSelection.specific">
+				<angucomplete-alt
+	              placeholder="Search posts or pages to show"
+	              pause="100"				              
+	              local-data="json[smart.pageSelection.specific]"
+	              search-fields="post_title"
+	              title-field="post_title"
+	              minlength="1"
+	              inputclass="form-control form-control-small"
+	              clear-selected="true"
+	              selected-object="selectionChanged"
+	              focus-in="selectionEntering()"/>
+	            </angucomplete-alt>
+	    		
+	    		<div class="alert alert-success" role="alert" ng-show="selectedPost">				 
+	    			<a ng-href="/{{selectedPost.post_name}}" target="_blank">
+	    				{{selectedPost.post_title}}
+	    			</a> has been added to {{smart.pageSelection.specific}} list
+	    		</div>
+	    		<br>
+	    		Widget will be {{(smart.pageSelection.specific == 'hide')?'hidden':'shown'}} on <b>{{smart.pageSelection[smart.pageSelection.specific].length}}</b> pages/posts
+	    		(<a style="cursor:pointer" ng-click="editList(smart.pageSelection.specific)">edit</a>)
+			</div>
+		
+		</div>
+	</div>
+</div>

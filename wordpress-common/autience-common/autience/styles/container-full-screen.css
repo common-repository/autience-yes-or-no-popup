@@ -1,0 +1,72 @@
+#powered-by-autience{
+	position: fixed;
+	bottom: 10px;
+	right: 15px;
+	display:none;
+}
+
+#powered-by-autience-link{
+	color: #848484;
+	font-size: 14px;
+	font-family: Arial;
+}
+
+.autience-blog-page-container{
+	display: none;
+}
+
+/*Define container classes specific to each layout*/
+/*Attributes like Background transparent etc, which are a property of the container, 
+  but specific to each layout */
+.autience-container-full-screen{
+	width: 100%;
+	height: 100%;
+	top:0px;
+	position: fixed;
+	background: url(../images/transpbg.png) repeat top left;
+	z-index: 9999 !important;
+	
+}
+
+
+.autience-layout-full-screen{	
+	width: 100%;
+	height: 100vh;
+	
+	background-color: white;
+}
+
+.autience-layout-full-screen .autience-content-bound{
+	
+	width: 100%;
+	height: 100vh;
+
+	display: table;
+}
+
+/*Positioning of the close button based on layout*/
+.autience-layout-full-screen .autience-close-layout{
+	float: right;
+	display: block;
+	margin-right:10px;
+	cursor: pointer;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
+
+@media only screen and (max-width : 360px){
+	/* phones potrait */
+
+}

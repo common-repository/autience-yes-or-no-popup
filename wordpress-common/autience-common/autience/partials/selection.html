@@ -1,0 +1,22 @@
+<!-- Render Themes in a select box -->
+<div class="row" ng-if="themes.length > 1 && (!settings.theme || checkingTheme)">
+    <div class="col-md-2 col-xs-12">
+        &#9658; Select a Theme
+    </div>
+</div>
+
+<div class="row" >
+    <center>
+        <div >
+            <select ng-options="option.tag as option.title for option in themes" ng-model="theme.highlight"></select>
+            <button ng-show="theme.highlight" class="btn btn-sm btn-primary" ng-click="useTheme(theme.highlight)">
+                Use this Theme
+            </button>
+        </div>
+        <br>
+        <div ng-show="theme.highlight">
+            <img style="border:1px solid black" ng-src="{{widget_path}}/themes/{{theme.highlight}}/images/screenshot.png">
+        </div>
+    </center>
+    <br>
+</div>

@@ -1,0 +1,63 @@
+{
+    "fields": [{
+        "key": "trigger",
+        "type": "radio",
+        "templateOptions": {
+            "label": "When should the widget show up (trigger event)?",
+            "options": [{
+                "name": "When the visitor is leaving the page (Exit Intent)",
+                "value": "page_exit",
+                "description":"Popup will be shown when the visitor moves their mouse towards the close button of the Browser's tab"
+            }, {
+                "name": "As soon as the page loads",
+                "value": "page_loaded"
+            }, {
+                "name": "Once visitor scrolls to the bottom of the page",
+                "value": "scroll_bottom"
+            }, {
+                "name": "After a specific delay",
+                "value": "elapsed"
+            }],
+            "required": true
+        }
+    }, {
+        "key": "elapsed",
+        "hideExpression": "(model.trigger != 'elapsed')",
+        "type": "radio",
+        "templateOptions": {
+            "label": "Specify a delay",
+            "options": [{
+                "name": "5 Seconds",
+                "value": 5
+            }, {
+                "name": "10 Seconds",
+                "value": 10
+            }, {
+                "name": "30 Seconds",
+                "value": 30
+            }, {
+                "name": "60 Seconds",
+                "value": 60
+            }],
+            "required": true
+        }
+    }, {
+        "key": "repeat",
+        "type": "radio",
+        "templateOptions": {
+            "label": "Should the widget be shown to a repeat visitor?",
+            "options": [{
+                "name": "Show whenever there is a trigger event (defined above)",
+                "value": "trigger"
+            }, {
+                "name": "Show until the user performs the expected action",
+                "value": "action"
+            }, {
+                "name": "Show only once for a visitor",
+                "value": "never"
+            }],
+            "required": true
+        }
+    }],
+    "common": ["page-selection","dont-show-again-checkbox","hide-after-purchase","disable-close-button","close-on-clicking-outside"]
+}

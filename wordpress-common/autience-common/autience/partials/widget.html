@@ -1,0 +1,40 @@
+
+<div class="row" ng-show="settings.theme" ng-class="themeClass(settings.theme)">
+    <hr ng-if="themes.length > 1">
+    <div class="col-lg-8 col-md-10 col-xs-12">
+        &#9658; Customize your widget (click on any text or background to update it)
+        <br><span ng-show="themes.length > 1">Current Theme: '{{themeName(settings.theme)}}' 
+        <a style="cursor:pointer" ng-click="settings.theme = null"><small>change</small></a>)
+        </span>
+        <br></br>
+    </div>
+    <div class="col-xs-12">
+        <!--
+        <link rel="stylesheet" type="text/css" 
+            ng-attr-href="{{themeStyleUrl(settings.theme)}}">
+        -->
+        <div class="col-md-12" ng-if="!encodedTemplates[settings.theme]">
+            <div class="autience-admin-container" ng-include="themeTemplateUrl(settings.theme)"></div>
+        </div>
+        <div class="col-md-12" ng-if="encodedTemplates[settings.theme]">
+            <div class="autience-admin-container" bind-html-compile="themeTemplates[settings.theme]"></div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-show="settings.theme">
+    <div class="col-md-12" style="margin-top:10px">
+        <button class="btn btn-primary pull-left" ng-disabled="!encodedTemplates[settings.theme]" ng-click="currentSection.settings = true;track('layout-next')" style="margin-left:10px;">
+            Next
+        </button>
+        <span class="text-muted" ng-hide="encodedTemplates[settings.theme]">
+            (Change some text before you can go to the next step)
+        </span>
+        <button class="btn btn-danger pull-right" ng-disabled="!encodedTemplates[settings.theme]" ng-hide="reset" ng-click="resetTheme(settings.theme)">
+            Reset my Changes
+        </button>
+        <div class="alert alert-info pull-right" ng-show="reset" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Note:</span> Click 'Save Settings' below to reset your changes
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+[{
+    "key": "home",
+    "type": "input",
+    "defaultValue": true,
+    "templateOptions": {
+        "type": "checkbox",
+        "label": "Show on the Home Page"
+    }
+}, {
+    "key": "mode",
+    "type": "radio",
+    "templateOptions": {
+        "label": "Where should the widget show up?",
+        "options": [{
+            "name": "On all Posts and Pages",
+            "value": "all"
+        }, {
+            "name": "On all Posts",
+            "value": "posts"
+        }, {
+            "name": "On all Pages",
+            "value": "pages"
+        }, {
+            "name": "On all product pages (for ecommerce themes)",
+            "value": "products"
+        }, {
+            "name": "Specific Pages or Posts",
+            "value": "specific"
+        }],
+        "required": true
+    }
+}, {
+    "key": "specific",
+    "type": "radio",
+    "templateOptions": {
+        "label": "Show or Hide?",
+        "options": [{
+            "name": "Show only on selected posts and pages",
+            "value": "show"
+        }, {
+            "name": "Hide on selected posts and pages (show on others)",
+            "value": "hide"
+        }],
+        "required": true
+    },
+    "hideExpression": "(model.mode != 'specific')"
+}]

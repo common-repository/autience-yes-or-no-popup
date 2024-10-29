@@ -1,0 +1,29 @@
+<div class="alert alert-danger" role="alert" ng-if="core.licenses.length == 0">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  You have not activated any Smart Extensions. <br>
+  Click on the 'Smart Extensions' tab to power your Widget with Additional Features
+</div>
+
+<div class="alert alert-info" role="alert" ng-if="core.licenses.length > 0"
+	ng-hide="openedSomething">
+You have activated {{core.licenses.length}} Smart Extension{{(core.licenses.length > 1)?'s':''}}. Click on an Extension to set it up
+</div>
+
+
+<accordion close-others="closeOthers" >
+
+	<accordion-group heading="{{core.extensionName(feature.id)}}" 
+		ng-repeat="feature in core.autience_premium" is-open="openExtension[feature.id]"
+		ng-if="core.hasLicense(feature.id)">
+		
+		<div ng-include="extensionPartial(feature.id)" 
+			></div>
+	</accordion-group>
+	
+</accordion>
+
+
+<div ng-show="openedSomething">
+	After making required changes, click on the 'Save Changes' button below
+</div>

@@ -1,0 +1,15 @@
+<div class="well" ng-controller="hideAfterPurchaseController">
+    <formly-form model="smart.hideAfterPurchase" fields="hideAfterPurchaseFields" form="forms.hideAfterPurchase">
+    </formly-form>
+</div>
+<div>
+	Where is the the visitor redirected after payment? (Popup will not be shown to visitors who have been to this page)
+</div>
+<div>
+    <angucomplete-alt placeholder="Enter page title" pause="100" local-data="core.publishedPages" search-fields="post_title" title-field="post_title" minlength="1" inputclass="form-control form-control-small" clear-selected="true" selected-object="core.thankyouSelected" />
+    </angucomplete-alt>
+</div>
+<br>
+<div ng-show="smart.hideAfterPurchase.thankyouPage">
+    Post-payment page : <b>{{smart.hideAfterPurchase.thankyouPage.title}}</b>
+</div>

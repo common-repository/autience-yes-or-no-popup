@@ -1,0 +1,34 @@
+
+<div class="row">
+    <div class="col-md-6">
+        Enter your License Key (License key is sent to your email once you purchase an extension)
+        <br>
+        <textarea style="width:100%" rows="5" ng-model="token"></textarea>
+        <button class="btn btn-primary btn-block" ng-click="activateLicense(token)" 
+            ng-hide="core.licenseFetched">
+            Activate License
+        </button>
+        <button class="btn btn-primary btn-block disabled" ng-show="core.licenseFetched">            
+            This License provides access to {{core.licenses.length}} Smart Extension{{(core.licenses.length > 1)?'s':''}}
+        </button>
+    </div>
+ 
+    <div class="col-md-6" style="margin-top:20px">
+        <div class="list-group">
+            <a class="list-group-item disabled">
+            Activated Extensions for {{autience_label}}
+        </a>
+            <a class="list-group-item" ng-repeat="license in core.licenses">
+                <span class="glyphicon glyphicon-ok"></span> {{core.extensionName(license.featureId)}} [for {{license.domain}}]</a>
+            <a class="list-group-item" ng-show="core.licenses.length == 0">
+                You have not yet activated any Smart Extensions</a>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:20px" ng-show="core.licenseFetched">
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> Click "Save Changes" button below to activate these Extensions
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
